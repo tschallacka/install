@@ -18,7 +18,7 @@ class Installer
     protected $tempDirectory;
 
     /**
-     * @var string Expected path where configuration files can be found.
+     * @var string Expected path where configuration files can be found. 
      */
     protected $configDirectory;
 
@@ -174,12 +174,13 @@ class Installer
         }
         catch (PDOException $ex) {
              $appendMessage = '';
-            /** SQL server can be VERY cryptic in explaining
-              * Why a thing has failed. These are the general 
-              * pointers one has to check in order to make
-              * sense of the cryptic messages microsoft hands
-              * out. 
-              */
+            /* 
+			 * SQL server can be VERY cryptic in explaining
+             * Why a thing has failed. These are the general 
+             * pointers one has to check in order to make
+             * sense of the cryptic messages microsoft hands
+             * out. 
+             */
             if ($type == 'sqlsrv' && strpos('SQLEXPRESS', $host) === false)
                 $appendMessage .= "You might want to add \\SQLEXPRESS(Where SQLEXPRESS is the server name) after ".
                     "your database host name '$host' or try to use '.\\SQLEXPRESS' if these issues persist. ";
